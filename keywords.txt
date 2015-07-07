@@ -1,0 +1,38 @@
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Printoo	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+Config_EC	KEYWORD2
+Config_Matrix	KEYWORD2
+Output_EC	KEYWORD2
+Letter_to_Matrix	KEYWORD2
+Draw_Matrix	KEYWORD2
+String_Matrix 	KEYWORD2
+Config_Cap_Keys	KEYWORD2
+Get_Cap_Button	KEYWORD2
+Config_Motors	KEYWORD2
+Motor_ON	KEYWORD2
+Servo_ON	KEYWORD2
+Config_Sensors	KEYWORD2
+Get_Light_ADC	KEYWORD2
+Get_Light	KEYWORD2
+Get_Temperature_ADC	KEYWORD2
+Get_Temp	KEYWORD2
+Calibrate_Accel_Sensor	KEYWORD2
+Get_Accel_ADC	KEYWORD2
+Get_XYZ		KEYWORD2
+Config_Ink_Adapter	KEYWORD2
+GPIO_Ink_Adapter	KEYWORD2
+Get_Ink_Button	KEYWORD2
+Config_BT	KEYWORD2
+Send_BT		KEYWORD2
+Config_ISORG	KEYWORD2
+ISORG_Read_Sensor	KEYWORD2
+
+########################################

@@ -1,0 +1,1 @@
+Blinky example for the Printoo Core. Connect the positive leg of the LED to pin 8 and the negative leg of the LED to GND.
