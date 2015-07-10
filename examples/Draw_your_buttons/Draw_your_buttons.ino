@@ -39,26 +39,26 @@ bool minus[8][8] = {
 void setup()
 {
 	//configure the LED Matrix to be connected to the LEFT side of the core
-    printoo.Config_Matrix(TETRIS,1);
+    printoo.configMatrix(TETRIS,1);
 	//configure the Ink Adapter module to be connected to the TOP side of the core
-    printoo.Config_Ink_Adapter(COG,30);
+    printoo.configInkAdapter(COG,30);
 }
 
 void loop()
 {
 	//get which button was pressed, if any
-    switch(printoo.Get_Ink_Button())
+    switch(printoo.getInkButton())
     {
       case 1:
 			  //if the first button was pressed, draw a plus sign on the LED Matrix and keep it
 			  //on for 100 cycles.
-              printoo.Draw_Matrix(plus,100);
+              printoo.drawMatrix(plus,100);
               delay(10);
               break;
       case 2:
 			  //if the second button was pressed, draw a minus sign on the LED Matrix and keep it
 			  //on for 100 cycles.
-              printoo.Draw_Matrix(minus,100);
+              printoo.drawMatrix(minus,100);
               delay(10);
               break;
      }

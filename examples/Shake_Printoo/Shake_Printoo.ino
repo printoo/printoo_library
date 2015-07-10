@@ -21,13 +21,13 @@ void setup()
 {
 	//This routine will calibrate the acceleration sensor, so make sure your Printoo
 	//is sitting on an even surface!
-    printoo.Config_Sensors();
+    printoo.configSensors();
 }
 
 void loop()
 {
 	//Here we measure the acceleration given by the sensor, but we'll use the raw ADC data
-    accel_ADC = printoo.Get_Accel_ADC(1);
+    accel_ADC = printoo.getAccelADC(1);
 	//Next, we'll get the pitch corresponding to that data. Change the parameters for a better mapping
 	//of the values. 0 and 1024 correspond to the minimum and maximum values of the ADC data, and 120 to 
 	//1500 is the output range of the piezo in Hz.

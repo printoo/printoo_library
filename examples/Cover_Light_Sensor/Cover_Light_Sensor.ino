@@ -22,13 +22,13 @@ void setup()
 {
 	//not necessary in this example since it only calibrates the acceleration sensor, but a good practice for everyone
 	//who uses the sensor board and might want to use the acceleration sensor.
-    printoo.Config_Sensors();
+    printoo.configSensors();
 }
 
 void loop()
 {
 	//First get the ADC value of the ambient light
-    light_ADC = printoo.Get_Light_ADC();
+    light_ADC = printoo.getLightADC();
 	//Next, we'll get the pitch corresponding to that data. Change the parameters for a better mapping
 	//of the values. 0 and 1024 correspond to the minimum and maximum values of the ADC data, and 120 to 
 	//1500 is the output range of the piezo in Hz.

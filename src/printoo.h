@@ -62,7 +62,7 @@ class Printoo
 * Outputs: N/A
 ***************************************************/
 
-		void Config_EC(int location, int nodisplays);
+		void configEC(int location, int nodisplays);
 		
 /***************************************************
 * Name: Output_EC
@@ -72,7 +72,7 @@ class Printoo
 * Outputs: N/A
 ***************************************************/
 
-		void Output_EC(int number[]);
+		void outputEC(int number[]);
 		
 /***************************************************
 * Name: Config_Matrix
@@ -81,7 +81,7 @@ class Printoo
 * Outputs: N/A
 ***************************************************/		
 		
-		void Config_Matrix(int location, int nodisplays);
+		void configMatrix(int location, int nodisplays);
 		
 /***************************************************
 * Name: Letter_to_Matrix
@@ -91,7 +91,7 @@ class Printoo
 * Outputs: N/A
 ***************************************************/		
 		
-		void Letter_to_Matrix(char Letter, bool matrix[][8]);
+		void letterToMatrix(char Letter, bool matrix[][8]);
 		
 /***************************************************
 * Name: Draw_Matrix
@@ -100,7 +100,7 @@ class Printoo
 * Outputs: N/A
 ***************************************************/		
 		
-		void Draw_Matrix(bool matrix[][8], int period);
+		void drawMatrix(bool matrix[][8], int period);
 		
 /***************************************************
 * Name: String_Matrix
@@ -111,7 +111,7 @@ class Printoo
 * Outputs: N/A
 ***************************************************/		
 		
-		void String_Matrix(char string[],int Cycle_time,int no_of_times, bool matrix[][8]);
+		void stringMatrix(char string[],int Cycle_time,int no_of_times, bool matrix[][8]);
 		
 /***************************************************
 * Name: Config_Cap_Keys
@@ -120,7 +120,7 @@ class Printoo
 * Outputs: N/A
 ***************************************************/		
 		
-		void Config_Cap_Keys(int location, int sensitivity);
+		void configCapKeys(int location, int sensitivity);
 		
 /***************************************************
 * Name: Get_Cap_Button
@@ -129,7 +129,7 @@ class Printoo
 * Outputs: Number corresponding to the pressed button
 ***************************************************/		
 		
-		int Get_Cap_Button(void);
+		int getCapButton(void);
 		
 /***************************************************
 * Name: Config_Motors
@@ -138,7 +138,7 @@ class Printoo
 * Outputs: N/A
 ***************************************************/		
 		
-		void Config_Motors(int location, int mode);
+		void configMotors(int location, int mode);
 		
 /***************************************************
 * Name: Motor_ON
@@ -147,7 +147,7 @@ class Printoo
 * Outputs: N/A
 ***************************************************/		
 		
-		void Motor_ON(int motor, int pwm, int dir);
+		void motorON(int motor, int pwm, int dir);
 		
 /***************************************************
 * Name: Servo_ON
@@ -156,7 +156,7 @@ class Printoo
 * Outputs: N/A
 ***************************************************/		
 		
-		void Servo_ON(int servo, int location);
+		void servoON(int servo, int location);
 		
 /***************************************************
 * Name: Config_Sensors
@@ -165,7 +165,7 @@ class Printoo
 * Outputs: N/A
 ***************************************************/		
 		
-		void Config_Sensors(void);
+		void configSensors(void);
 		
 /***************************************************
 * Name: Get_Light_ADC
@@ -174,7 +174,7 @@ class Printoo
 * Outputs: The ADC value (0-1024) of the measured ambient light.
 ***************************************************/		
 		
-		int Get_Light_ADC(void);
+		int getLightADC(void);
 		
 /***************************************************
 * Name: Get_Light
@@ -183,7 +183,7 @@ class Printoo
 * Outputs: The measured value of the ambient light
 ***************************************************/
 		
-		float Get_Light(void);
+		float getLight(void);
 		
 /***************************************************
 * Name: Get_Temperature_ADC
@@ -192,7 +192,7 @@ class Printoo
 * Outputs: The ADC value (0-1024) of the measured temperature.
 ***************************************************/
 		
-		int Get_Temperature_ADC(void);
+		int getTemperatureADC(void);
 		
 /***************************************************
 * Name: Get_Temp
@@ -201,7 +201,7 @@ class Printoo
 * Outputs: The measured value of the temperature
 ***************************************************/		
 		
-		float Get_Temp(int type);
+		float getTemp(int type);
 		
 /***************************************************
 * Name: Get_Accel_ADC
@@ -210,7 +210,7 @@ class Printoo
 * Outputs: ADC value (0-1024) of the voltage given by the acceleration sensor.
 ***************************************************/
 
-		int Get_Accel_ADC(int direction);
+		int getAccelADC(int direction);
 		
 /***************************************************
 * Name: Get_XYZ
@@ -219,25 +219,34 @@ class Printoo
 * Outputs: Acceleration on the given axis in g's.
 ***************************************************/
 		
-		float Get_XYZ(int type);
+		float getXYZ(int type);
 
 /***************************************************
 * Name: Config_Ink_Adapter
 * Description: Initializes the Ink Adapter module
-* Inputs: Location of the module and the sensitivity value (between 0 and 30)
+* Inputs: Location of the module (HEART, COG, TETRIS) and the sensitivity value (between 0 and 30)
 * Outputs: N/A
 ***************************************************/
 		
-		void Config_Ink_Adapter(int location, int sensitivity);
+		void configInkAdapter(int location, int sensitivity);
 
 /***************************************************
-* Name: GPIO_Ink_Adapter
-* Description: Sets a GPIO of the Ink Adapter board to HIGH or LOW
-* Inputs: GPIO to be altered and the new value it should assume
+* Name: Config_GPIO_Ink_Adapter
+* Description: Configures a GPIO (1,2 or 3) of the Ink Adapter board as INPUT or OUTPUT
+* Inputs: GPIO to be altered and the direction it should assume
 * Outputs: N/A
 ***************************************************/
 
-		void GPIO_Ink_Adapter(int pin, int dir);
+		void configGPIOInkAdapter(int pin, int dir);
+
+/***************************************************
+* Name: Config_GPIO_Ink_Adapter
+* Description: Sets a GPIO (1,2 or 3) of the Ink Adapter board as HIGH or LOW
+* Inputs: GPIO to be altered and the value it should assume
+* Outputs: N/A
+***************************************************/
+
+		void setGPIOInkAdapter(int pin, int value);
 		
 /***************************************************
 * Name: Get_Ink_Button
@@ -246,7 +255,7 @@ class Printoo
 * Outputs: Number corresponding to the ink button pressed
 ***************************************************/
 
-		int Get_Ink_Button(void);
+		int getInkButton(void);
 
 /***************************************************
 * Name: Config_BT
@@ -255,7 +264,7 @@ class Printoo
 * Outputs: N/A
 ***************************************************/
 
-		void Config_BT(int location, String name);
+		void configBT(int location, String name);
 		
 /***************************************************
 * Name: Send_BT
@@ -264,7 +273,7 @@ class Printoo
 * Outputs: N/A
 ***************************************************/
 
-		void Send_BT(String string);
+		void sendBT(String string);
 		
 /***************************************************
 * Name: Config_ISORG
@@ -273,7 +282,7 @@ class Printoo
 * Outputs: N/A
 ***************************************************/
 
-		void Config_ISORG(void);
+		void configISORG(void);
 		
 /***************************************************
 * Name: ISORG_Read_Sensor
@@ -282,7 +291,7 @@ class Printoo
 * Outputs: ADC value of the voltage across the sensor
 ***************************************************/
 
-		int ISORG_Read_Sensor(int sensor);
+		int ISORGReadSensor(int sensor);
 
 		
   private:
@@ -292,16 +301,15 @@ class Printoo
 		int _enPin;
 		int _enRegPin;
 		void cleanup(void);
-		void fill_EC(int array[10][8], int num[8], int pos);
-		void light_EC(int array[10][8]);
+		void fillEC(int array[10][8], int num[8], int pos);
+		void lightEC(int array[10][8]);
 		void lightLED(int tempLED[8]);
-		void Build_Matrix(bool matrix_source[8][8],int col_source, int col_target, int no_col, bool matrix_target[][8],bool clear);
-		void Matrix_Letter(char Letter, bool matrix[][8],int col_source, int col_target, int no_col, bool clear);
-		void Print_Matrix(bool matrix[][8]);
-		void Shift_Matrix(bool matrix[][8]);
-		void Clear_Matrix(bool matrix[][8]);
-		void lightLED_MATRIX(bool tempLED[][8]);
-		void Calibrate_Accel_Sensor(void);
+		void buildMatrix(bool matrix_source[8][8],int col_source, int col_target, int no_col, bool matrix_target[][8],bool clear);
+		void matrixLetter(char Letter, bool matrix[][8],int col_source, int col_target, int no_col, bool clear);
+		void shiftMatrix(bool matrix[][8]);
+		void clearMatrix(bool matrix[][8]);
+		void lightLEDMatrix(bool tempLED[][8]);
+		void calibrateAccelSensor(void);
 		
 		
 };

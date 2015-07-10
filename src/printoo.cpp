@@ -23,7 +23,7 @@ int _enRegPin_EC;
 int _nodisplays_EC;
 int _displays_EC[10][8];
 
-void Printoo::Config_EC(int location, int nodisplays)
+void Printoo::configEC(int location, int nodisplays)
 {
 	switch(location)
 	{
@@ -62,7 +62,7 @@ void Printoo::Config_EC(int location, int nodisplays)
 	delay(5000);
 }
 
-void Printoo::Output_EC(int number[])
+void Printoo::outputEC(int number[])
 {
 	int y;
 	
@@ -73,34 +73,34 @@ void Printoo::Output_EC(int number[])
 			switch(number[y])
 				{
 					case 1:
-							fill_EC(_displays_EC,_Num1,y);
+							fillEC(_displays_EC,_Num1,y);
 							break;
 					case 2:
-							fill_EC(_displays_EC,_Num2,y);
+							fillEC(_displays_EC,_Num2,y);
 							break;
 					case 3:
-							fill_EC(_displays_EC,_Num3,y);
+							fillEC(_displays_EC,_Num3,y);
 							break;
 					case 4:
-							fill_EC(_displays_EC,_Num4,y);
+							fillEC(_displays_EC,_Num4,y);
 							break;
 					case 5:
-							fill_EC(_displays_EC,_Num5,y);
+							fillEC(_displays_EC,_Num5,y);
 							break;
 					case 6:
-							fill_EC(_displays_EC,_Num6,y);
+							fillEC(_displays_EC,_Num6,y);
 							break;
 					case 7:
-							fill_EC(_displays_EC,_Num7,y);
+							fillEC(_displays_EC,_Num7,y);
 							break;
 					case 8:
-							fill_EC(_displays_EC,_Num8,y);
+							fillEC(_displays_EC,_Num8,y);
 							break;
 					case 9:
-							fill_EC(_displays_EC,_Num9,y);
+							fillEC(_displays_EC,_Num9,y);
 							break;
 					case 0:
-							fill_EC(_displays_EC,_Num0,y);
+							fillEC(_displays_EC,_Num0,y);
 							break;
 				}
 		}
@@ -109,34 +109,34 @@ void Printoo::Output_EC(int number[])
 			switch(number[y])
 				{
 					case 1:
-							fill_EC(_displays_EC,_Num1_2,y);
+							fillEC(_displays_EC,_Num1_2,y);
 							break;
 					case 2:
-							fill_EC(_displays_EC,_Num2_2,y);
+							fillEC(_displays_EC,_Num2_2,y);
 							break;
 					case 3:
-							fill_EC(_displays_EC,_Num3_2,y);
+							fillEC(_displays_EC,_Num3_2,y);
 							break;
 					case 4:
-							fill_EC(_displays_EC,_Num4_2,y);
+							fillEC(_displays_EC,_Num4_2,y);
 							break;
 					case 5:
-							fill_EC(_displays_EC,_Num5_2,y);
+							fillEC(_displays_EC,_Num5_2,y);
 							break;
 					case 6:
-							fill_EC(_displays_EC,_Num6_2,y);
+							fillEC(_displays_EC,_Num6_2,y);
 							break;
 					case 7:
-							fill_EC(_displays_EC,_Num7_2,y);
+							fillEC(_displays_EC,_Num7_2,y);
 							break;
 					case 8:
-							fill_EC(_displays_EC,_Num8_2,y);
+							fillEC(_displays_EC,_Num8_2,y);
 							break;
 					case 9:
-							fill_EC(_displays_EC,_Num9_2,y);
+							fillEC(_displays_EC,_Num9_2,y);
 							break;
 					case 0:
-							fill_EC(_displays_EC,_Num0_2,y);
+							fillEC(_displays_EC,_Num0_2,y);
 							break;
 				}
 		}
@@ -144,11 +144,11 @@ void Printoo::Output_EC(int number[])
 	cleanup();
 	lightLED(_Clear);
 	delay(300);
-	light_EC(_displays_EC);
+	lightEC(_displays_EC);
 	delay(2500);
 }
 
-void Printoo::fill_EC(int array[10][8],int num[8],int pos)
+void Printoo::fillEC(int array[10][8],int num[8],int pos)
 {
 	int i;
 	for(i=0;i<8;i++)
@@ -158,7 +158,7 @@ void Printoo::fill_EC(int array[10][8],int num[8],int pos)
 	
 }
 
-void Printoo::light_EC(int array[10][8])
+void Printoo::lightEC(int array[10][8])
 {
 	long int rowbitsToSend;
 	int y, x;
@@ -234,7 +234,7 @@ int _dataPin_MATRIX;
 int _enPin_MATRIX;
 int _nodisplays_MATRIX;
 
-void Printoo::Config_Matrix(int location, int nodisplays){
+void Printoo::configMatrix(int location, int nodisplays){
 	switch(location)
 	{
 		case 1:
@@ -259,17 +259,17 @@ void Printoo::Config_Matrix(int location, int nodisplays){
 	digitalWrite(_enPin_MATRIX, LOW);
 	_nodisplays_MATRIX = nodisplays;
 }
-void Printoo::Letter_to_Matrix(char Letter, bool matrix[][8])
+void Printoo::letterToMatrix(char Letter, bool matrix[][8])
 {
 	int i;
-	Matrix_Letter(Letter, matrix, 0,0,8,1);
+	matrixLetter(Letter, matrix, 0,0,8,1);
 	for(i = 0; i < 250; i++)
 	{
-		lightLED_MATRIX(matrix);
+		lightLEDMatrix(matrix);
 	}
 }
 
-void Printoo::Draw_Matrix(bool matrix[][8],int period)
+void Printoo::drawMatrix(bool matrix[][8],int period)
 {
 	int i,x,y;
 	bool dummy_matrix[8][8];
@@ -281,11 +281,11 @@ void Printoo::Draw_Matrix(bool matrix[][8],int period)
 	
 	for(i = 0; i < period; i++)
 	{
-		lightLED_MATRIX(dummy_matrix);
+		lightLEDMatrix(dummy_matrix);
 	}
 }
 
-void Printoo::Matrix_Letter(char Letter, bool matrix[][8],int col_source, int col_target, int no_col, bool clear){
+void Printoo::matrixLetter(char Letter, bool matrix[][8],int col_source, int col_target, int no_col, bool clear){
 	
 	int _col_source = col_source;
 	int _col_target = col_target;
@@ -295,107 +295,107 @@ void Printoo::Matrix_Letter(char Letter, bool matrix[][8],int col_source, int co
 	{
 		case 'a':
 		case 'A':
-				Build_Matrix(_matrix_A,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_A,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'b':
 		case 'B':
-				Build_Matrix(_matrix_B,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_B,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'c':
 		case 'C':
-				Build_Matrix(_matrix_C,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_C,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'd':
 		case 'D':
-				Build_Matrix(_matrix_D,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_D,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'e':
 		case 'E':
-				Build_Matrix(_matrix_E,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_E,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'f':
 		case 'F':
-				Build_Matrix(_matrix_F,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_F,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'g':
 		case 'G':
-				Build_Matrix(_matrix_G,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_G,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'H':
 		case 'h':
-				Build_Matrix(_matrix_H,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_H,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'I':
 		case 'i':
-				Build_Matrix(_matrix_I,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_I,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'J':
 		case 'j':
-				Build_Matrix(_matrix_J,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_J,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'K':
 		case 'k':
-				Build_Matrix(_matrix_K,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_K,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'L':
 		case 'l':
-				Build_Matrix(_matrix_L,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_L,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'M':
 		case 'm':
-				Build_Matrix(_matrix_M,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_M,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'N':
 		case 'n':
-				Build_Matrix(_matrix_N,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_N,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'O':
 		case 'o':
-				Build_Matrix(_matrix_O,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_O,_col_source,_col_target,_no_col,matrix,clear);
 				break;	
 		case 'P':
 		case 'p':
-				Build_Matrix(_matrix_P,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_P,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'Q':
 		case 'q':
-				Build_Matrix(_matrix_Q,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_Q,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'R':
 		case 'r':
-				Build_Matrix(_matrix_R,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_R,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'S':
 		case 's':
-				Build_Matrix(_matrix_S,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_S,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'T':
 		case 't':
-				Build_Matrix(_matrix_T,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_T,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'U':
 		case 'u':
-				Build_Matrix(_matrix_U,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_U,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'V':
 		case 'v':
-				Build_Matrix(_matrix_V,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_V,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'W':
 		case 'w':
-				Build_Matrix(_matrix_W,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_W,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'X':
 		case 'x':
-				Build_Matrix(_matrix_X,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_X,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'Y':
 		case 'y':
-				Build_Matrix(_matrix_Y,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_Y,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 		case 'Z':
 		case 'z':
-				Build_Matrix(_matrix_Z,_col_source,_col_target,_no_col,matrix,clear);
+				buildMatrix(_matrix_Z,_col_source,_col_target,_no_col,matrix,clear);
 				break;
 	}			
 	
@@ -403,16 +403,16 @@ void Printoo::Matrix_Letter(char Letter, bool matrix[][8],int col_source, int co
 
 //clear - 1 = clear matrix
 //clear - 0 = shift matrix 
-void Printoo::Build_Matrix(bool matrix_source[8][8],int col_source, int col_target, int no_col, bool matrix_target[][8],bool clear)
+void Printoo::buildMatrix(bool matrix_source[8][8],int col_source, int col_target, int no_col, bool matrix_target[][8],bool clear)
 {
 	int x, y;
 	int _col_source = col_source;
 	int _col_target = col_target;
 	int _no_col = no_col+_col_target;
 	if(clear)
-		Clear_Matrix(matrix_target);
+		clearMatrix(matrix_target);
 	else
-		Shift_Matrix(matrix_target);
+		shiftMatrix(matrix_target);
 	
 	for (y = _col_target; y < _no_col; y++) 
 	{
@@ -423,7 +423,7 @@ void Printoo::Build_Matrix(bool matrix_source[8][8],int col_source, int col_targ
 	}
 }
 
-void Printoo::Clear_Matrix(bool matrix[][8])
+void Printoo::clearMatrix(bool matrix[][8])
 {
 	int n = _nodisplays_MATRIX;
 	int x,y;
@@ -436,7 +436,7 @@ void Printoo::Clear_Matrix(bool matrix[][8])
 	}
 }
 
-void Printoo::Shift_Matrix(bool matrix[][8])
+void Printoo::shiftMatrix(bool matrix[][8])
 {
 	int n = _nodisplays_MATRIX;
 	int x,y;
@@ -453,7 +453,7 @@ void Printoo::Shift_Matrix(bool matrix[][8])
 	}
 }
 
-void Printoo::String_Matrix(char string[], int Cycle_time,int no_of_times, bool matrix[][8])
+void Printoo::stringMatrix(char string[], int Cycle_time,int no_of_times, bool matrix[][8])
 {
 	int i,x,y,rep;
 	int _n, _delay;
@@ -467,10 +467,10 @@ void Printoo::String_Matrix(char string[], int Cycle_time,int no_of_times, bool 
 		//Get the first character
 		_letter = string[0];
 		// wipe the matrix and print the character
-		Matrix_Letter(_letter, matrix, 0, 0, 8, 1);
+		matrixLetter(_letter, matrix, 0, 0, 8, 1);
 		for(i = 0; i < _delay; i++)
 		{ // Light it up
-			lightLED_MATRIX(matrix);
+			lightLEDMatrix(matrix);
 		}
 		//While we're not in the end of the string
 		for(y = 1; string[y] != NULL; y++)
@@ -481,13 +481,13 @@ void Printoo::String_Matrix(char string[], int Cycle_time,int no_of_times, bool 
 			{
 				//Get the character corresponding to the y pos of the string
 				if(_letter == ' ')
-					Shift_Matrix(matrix);
+					shiftMatrix(matrix);
 				else
 				//Shift + write the last column of the source matrix
-					Matrix_Letter(_letter, matrix, x, 7, 1, 0);
+					matrixLetter(_letter, matrix, x, 7, 1, 0);
 				for(i = 0; i < _delay; i++)
 				{ // Light it up
-					lightLED_MATRIX(matrix);
+					lightLEDMatrix(matrix);
 				}
 			}
 			
@@ -495,20 +495,20 @@ void Printoo::String_Matrix(char string[], int Cycle_time,int no_of_times, bool 
 		// END - code to clear the matrix
 		for(y=0;y<((8*(_nodisplays_MATRIX-1))+5);y++)
 		{
-			Shift_Matrix(matrix);
+			shiftMatrix(matrix);
 			for(i = 0; i < _delay; i++)
 			{
-				lightLED_MATRIX(matrix);
+				lightLEDMatrix(matrix);
 			}
 		} 
 		// delay between repetitions
 		delay(10*_delay);
 	}
-	Clear_Matrix(matrix);
-	lightLED_MATRIX(matrix);
+	clearMatrix(matrix);
+	lightLEDMatrix(matrix);
 }
 
-void Printoo::lightLED_MATRIX(bool tempLED[][8]){
+void Printoo::lightLEDMatrix(bool tempLED[][8]){
   byte columnbitsToSend = 0;
   byte rowbitsToSend = 0;
  
@@ -673,7 +673,7 @@ CapacitiveSensor   button3;
 CapacitiveSensor   button4;
 CapacitiveSensor   button5; 
 
- void Printoo::Config_Cap_Keys(int location, int sensitivity)
+ void Printoo::configCapKeys(int location, int sensitivity)
 {
 	switch(location)
 	{
@@ -703,7 +703,7 @@ CapacitiveSensor   button5;
 	_cap_sens = sensitivity;
 }
 
-int Printoo::Get_Cap_Button(void)
+int Printoo::getCapButton(void)
 {
 	long total1 =  button1.capacitiveSensor(_cap_sens);
     long total2 =  button2.capacitiveSensor(_cap_sens);
@@ -748,7 +748,7 @@ Servo _servo1;
 Servo _servo2;
 
 
-void Printoo::Config_Motors(int location, int mode)
+void Printoo::configMotors(int location, int mode)
 {
 	switch(location)
 	{
@@ -808,7 +808,7 @@ void Printoo::Config_Motors(int location, int mode)
 	}
 }
 
-void Printoo::Motor_ON(int motor, int pwm, int dir)
+void Printoo::motorON(int motor, int pwm, int dir)
 {
 	int _num_motor = motor;
 	int _pwm;
@@ -840,7 +840,7 @@ void Printoo::Motor_ON(int motor, int pwm, int dir)
 	}
 }
 
-void Printoo::Servo_ON(int servo, int location)
+void Printoo::servoON(int servo, int location)
 {
 	switch(servo)
 	{
@@ -863,19 +863,19 @@ float _zero_g_x;
 float _zero_g_y;
 float _one_g_z;
 
-void Printoo::Config_Sensors(void)
+void Printoo::configSensors(void)
 {
-	Calibrate_Accel_Sensor();
+	calibrateAccelSensor();
 }
 
-int Printoo::Get_Light_ADC(void)
+int Printoo::getLightADC(void)
 {
 	int value;
 	value = analogRead(A0);
 	return value;
 }
 
-float Printoo::Get_Light(void)
+float Printoo::getLight(void)
 {
 	int value;
 	float volt,res;
@@ -886,14 +886,14 @@ float Printoo::Get_Light(void)
 	return res;
 }
 
-int Printoo::Get_Temperature_ADC(void)
+int Printoo::getTemperatureADC(void)
 {
 	int value;
 	value = analogRead(A7);
 	return value;
 }
 
-float Printoo::Get_Temp(int type)
+float Printoo::getTemp(int type)
 {
 	int value;
 	float temp;
@@ -917,7 +917,7 @@ float Printoo::Get_Temp(int type)
 		return 0;
 }
 
-void Printoo::Calibrate_Accel_Sensor(void)
+void Printoo::calibrateAccelSensor(void)
 {
 	int value,mean,i;
 	
@@ -946,7 +946,7 @@ void Printoo::Calibrate_Accel_Sensor(void)
 	_one_g_z = value;
 }
 
-int Printoo::Get_Accel_ADC(int direction)
+int Printoo::getAccelADC(int direction)
 {
 	int value;
 	
@@ -965,7 +965,7 @@ int Printoo::Get_Accel_ADC(int direction)
 	return value;
 }
 
-float Printoo::Get_XYZ(int type)
+float Printoo::getXYZ(int type)
 {
 	//a1 - z
 	//a2 - y
@@ -1030,7 +1030,7 @@ CapacitiveSensor   _press2;
 int _sens;
 int _gpio1,_gpio2,_gpio3;
 
-void Printoo::Config_Ink_Adapter(int location, int sensitivity)
+void Printoo::configInkAdapter(int location, int sensitivity)
 {
 	switch(location)
 	{
@@ -1059,7 +1059,7 @@ void Printoo::Config_Ink_Adapter(int location, int sensitivity)
 	_sens = sensitivity;
 }
 
-void Printoo::GPIO_Ink_Adapter(int pin, int dir)
+void Printoo::configGPIOInkAdapter(int pin, int dir)
 {
 	switch(pin)
 	{
@@ -1084,7 +1084,45 @@ void Printoo::GPIO_Ink_Adapter(int pin, int dir)
 	}
 }
 
-int Printoo::Get_Ink_Button(void)
+void Printoo::setGPIOInkAdapter(int pin, int value)
+{
+	switch(pin)
+	{
+		case 1:
+				if(value)
+				{
+					digitalWrite(_gpio1,HIGH);
+				}
+				else
+				{
+					digitalWrite(_gpio1,LOW);
+				}
+				break;
+		case 2:
+				if(value)
+				{
+					digitalWrite(_gpio2,HIGH);
+				}
+				else
+				{
+					digitalWrite(_gpio2,LOW);
+				}
+				break;
+		case 3:
+				if(value)
+				{
+					digitalWrite(_gpio3,HIGH);
+				}
+				else
+				{
+					digitalWrite(_gpio3,LOW);
+				}
+				break;
+	}
+				
+}
+
+int Printoo::getInkButton(void)
 {
 	long total1 =  _press1.capacitiveSensor(_cap_sens);
     long total2 =  _press2.capacitiveSensor(_cap_sens);
@@ -1111,7 +1149,7 @@ int _RX_Pin, _TX_Pin;
 SoftwareSerial _blueToothSerial(_RX_Pin,_TX_Pin);
 
 
-void Printoo::Config_BT(int location, String name)
+void Printoo::configBT(int location, String name)
 {
 	String namecmd = "AT+NAME";
 	String aux;
@@ -1144,7 +1182,7 @@ void Printoo::Config_BT(int location, String name)
 	_blueToothSerial.flush();
 }
 
-void Printoo::Send_BT(String string)
+void Printoo::sendBT(String string)
 {
 	_blueToothSerial.print(string);
 }
@@ -1162,7 +1200,7 @@ int _S2=A1;
 int _S1=A2;
 int _S0=A3;
 
-void Printoo::Config_ISORG(void)
+void Printoo::configISORG(void)
 {
 	pinMode(_IR_PIN, OUTPUT);       //pin for IR signal control
 	pinMode(_EN, OUTPUT);           //pin for MUX ENABLE  ACTIVE LOW 
@@ -1174,7 +1212,7 @@ void Printoo::Config_ISORG(void)
 	digitalWrite(_EN, LOW);                  // turn MUX OFF
 }
 
-int Printoo::ISORG_Read_Sensor(int sensor)
+int Printoo::ISORGReadSensor(int sensor)
 {
 	int read;
 	switch(sensor)

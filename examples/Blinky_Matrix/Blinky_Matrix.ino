@@ -42,15 +42,15 @@ int number_of_led_matrices = 1;
 void setup()
 {
 	//configure the LED Matrix module to be connected to the LEFT side of the core
-    printoo.Config_Matrix(TETRIS,number_of_led_matrices);
+    printoo.configMatrix(TETRIS,number_of_led_matrices);
 }
 
 void loop()
 {
 	//draw the first image into the led matrix for 100 cycles
-    printoo.Draw_Matrix(heart1,100);
+    printoo.drawMatrix(heart1,100);
     delay(50);
 	//draw the second image into the led matrix for 100 cycles
-    printoo.Draw_Matrix(heart2,100);
+    printoo.drawMatrix(heart2,100);
     delay(50);
 }

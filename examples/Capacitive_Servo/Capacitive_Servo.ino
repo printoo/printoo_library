@@ -27,18 +27,18 @@ int location = 90;
 void setup()
 {
 	//configure the capacitive keys module to be connected to the BOTTOM side of the core
-    printoo.Config_Cap_Keys(HEART,sensitivity);
+    printoo.configCapKeys(HEART,sensitivity);
 	//configure the motors module to be connected to the LEFT side of the core
-    printoo.Config_Motors(TETRIS,mode);
+    printoo.configMotors(TETRIS,mode);
 	delay(50);
 	//move the servo to the initial location
-	printoo.Servo_ON(2,location);
+	printoo.servoON(2,location);
 }
 
 void loop()
 {
 	//get the button that was pressed
-    button = printoo.Get_Cap_Button();
+    button = printoo.getCapButton();
     switch(button)
     {
         case 1:
@@ -57,6 +57,6 @@ void loop()
                 break;
      }
 	 //move the servo to the desired location
-     printoo.Servo_ON(2,location);
+     printoo.servoON(2,location);
      delay(100);
 }

@@ -32,15 +32,15 @@ void setup()
       number[i] = 0;
     }
 	//configure the EC driver to be on the left side of the core
-    printoo.Config_EC(TETRIS,number_of_screens);
+    printoo.configEC(TETRIS,number_of_screens);
 	//configure the capacitive keys module to be on the bottom side of the core
-    printoo.Config_Cap_Keys(HEART,sensitivity);
+    printoo.configCapKeys(HEART,sensitivity);
 }
 
 void loop()
 {
 	//get which button was pressed
-    switch(printoo.Get_Cap_Button())
+    switch(printoo.getCapButton())
     {
         case 5:
 				//if it was button 5, one unit will be added to the score.
@@ -80,6 +80,6 @@ void loop()
                    break;
      }
 	 //print the final number
-     printoo.Output_EC(number);
+     printoo.outputEC(number);
      delay(100);
 }
